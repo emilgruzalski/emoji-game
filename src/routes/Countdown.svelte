@@ -14,7 +14,7 @@
     </button>
 
     <div class="duration">
-        <div class="remaining" style="-- p: {remaining / duration}"/>
+        <div class="remaining" style="--p: {remaining / duration}"/>
     </div>
 </div>
 
