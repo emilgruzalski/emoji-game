@@ -3,6 +3,7 @@
     import '../styles.css';
     import Modal from './Modal.svelte';
 	import { levels } from './levels';
+    import { confetti } from '@neoconfetti/svelte';
 
     let state: 'waiting' | 'playing' | 'paused' | 'won' | 'lost' = 'waiting';
 
@@ -55,6 +56,16 @@
     </Modal>
 {/if}
 
+{#if state === 'won'}
+    <div 
+        class="confetti" 
+        use:confetti={{
+            stageWidth: innerWidth,
+            stageHeight: innerHeight
+        }} 
+    />
+{/if}
+
 <style>
     h1 {
         font-size: 4em;
@@ -66,5 +77,14 @@
 
     p {
         font-family: 'Press Start 2P', sans-serif;
+    }
+
+    .confetti {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
     }
 </style>

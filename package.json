@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/press-start-2p": "^5.0.15"
+		"@fontsource/press-start-2p": "^5.0.15",
+		"@neoconfetti/svelte": "^1.0.0"
 	}
 }
