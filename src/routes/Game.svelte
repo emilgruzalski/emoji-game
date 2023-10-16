@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { createEventDispatcher, onMount } from "svelte";
 	import Countdown from "./Countdown.svelte";
     import Found from "./Found.svelte";
     import Grid from "./Grid.svelte";
@@ -7,14 +7,29 @@
     import type { Level } from "./levels";
 	import { shuffle } from "./utils";
 
-    const level = levels[0];
+    const dispatch = createEventDispatcher();
 
-    let size: number = level.size;
-    let grid: string[] = create_grid(level);
+    let size: number;
+    let grid: string[] = [];
     let found: string[] = [];
-    let remaining: number = level.duration;
-    let duration: number = level.duration;
+    let remaining = 0;
+    let duration = 0;
     let playing: boolean = false;
+
+    export function start(level: Level) {
+        size = level.size;
+        grid = create_grid(level);
+        remaining = duration = level.duration;
+
+        resume();
+    }
+
+    function resume() {
+        playing = true;
+        countdown();
+
+        dispatch('play');
+    }
 
     function create_grid(level: Level) {
         const copy = level.emojis.slice();
@@ -38,26 +53,34 @@
         let remaining_at_start = remaining;
 
         function loop() {
-            if (playing) return;
+            if (!playing) return;
 
             requestAnimationFrame(loop);
 
             remaining = remaining_at_start - (Date.now() - start);
 
             if (remaining <= 0) {
-                // TODO game over
+                dispatch('lose');
                 playing = false;
             }
         }
 
         loop();
     }
-
-    onMount(countdown);
 </script>
-<div class="game">
+
+<div class="game" style="--size: {size}">
     <div class="info">
-        <Countdown {remaining} duration={level.duration} />
+        {#if playing}
+            <Countdown 
+                {remaining} 
+                duration={duration} 
+                on:click={() => {
+                    playing = false;
+                    dispatch('pause');
+                }}
+            />
+        {/if}
     </div>
 
     <div class="grid-container">
@@ -65,6 +88,10 @@
             {grid} 
             on:found={(e) => {
                 found = [...found, e.detail.emoji];
+
+                if (found.length === size ** 2 / 2) {
+                    dispatch('win');
+                }
             }}
             {found}
         />
