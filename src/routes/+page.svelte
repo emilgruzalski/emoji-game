@@ -43,13 +43,13 @@
 
         <div class="buttons">
             {#if state === 'paused'}
-                <button on:click={() => game.resume()}>resume</button>
-                <button on:click={() => (state = 'waiting')}> quit </button>
+                <button on:click={() => game.resume()}><p>resume</p></button>
+                <button on:click={() => (state = 'waiting')}><p>quit</p></button>
             {:else}
                 {#each levels as level}
                     <button on:click={() => {
                         game.start(level);
-                    }}>{level.label}</button>
+                    }}><p>{level.label}</p></button>
                 {/each}
             {/if}
         </div>
