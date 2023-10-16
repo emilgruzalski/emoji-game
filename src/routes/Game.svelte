@@ -24,7 +24,7 @@
         resume();
     }
 
-    function resume() {
+    export function resume() {
         playing = true;
         countdown();
 

@@ -43,8 +43,8 @@
 
         <div class="buttons">
             {#if state === 'paused'}
-                <button>resume</button>
-                <button>quit</button>
+                <button on:click={() => game.resume()}>resume</button>
+                <button on:click={() => (state = 'waiting')}> quit </button>
             {:else}
                 {#each levels as level}
                     <button on:click={() => {
@@ -78,6 +78,12 @@
     p {
         font-family: 'Press Start 2P', sans-serif;
     }
+
+    .buttons {
+		display: flex;
+		justify-content: center;
+		gap: 0.5em;
+	}
 
     .confetti {
         position: fixed;
