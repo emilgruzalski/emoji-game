@@ -29,7 +29,7 @@
 {#if state !== 'playing'}
     <Modal>
         <header>
-            <h1>eM<span>oJi Ga</span>Me</h1>
+            <h1>sN<span>aP & m</span>ATc<span>h</span></h1>
             <p>the emoji matching game</p>
         </header>
 
@@ -78,6 +78,8 @@
 
     p {
         font-family: 'Press Start 2P', sans-serif;
+        display: flex;
+        justify-content: center;
     }
 
     .buttons {
@@ -95,5 +97,9 @@
         pointer-events: none;
     }
 
+    header {
+        text-align: center;
+        margin-inline: 0.5em;
+    }
     
 </style>
