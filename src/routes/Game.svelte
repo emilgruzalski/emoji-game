@@ -3,7 +3,6 @@
 	import Countdown from "./Countdown.svelte";
     import Found from "./Found.svelte";
     import Grid from "./Grid.svelte";
-    import { levels } from "./levels";
     import type { Level } from "./levels";
 	import { shuffle } from "./utils";
 
@@ -12,14 +11,14 @@
     let size: number;
     let grid: string[] = [];
     let found: string[] = [];
-    let remaining = 0;
-    let duration = 0;
-    let playing: boolean = false;
+    let remaining: number;
+    let duration: number;
+    let playing: boolean;
 
     export function start(level: Level) {
         size = level.size;
-        grid = create_grid(level);
         remaining = duration = level.duration;
+        grid = create_grid(level);
         found = [];
 
         resume();
@@ -61,8 +60,8 @@
             remaining = remaining_at_start - (Date.now() - start);
 
             if (remaining <= 0) {
-                dispatch('lose');
                 playing = false;
+                dispatch('lose');
             }
         }
 
@@ -91,7 +90,11 @@
                 found = [...found, e.detail.emoji];
 
                 if (found.length === size ** 2 / 2) {
-                    dispatch('win');
+                    playing = false;
+                    setTimeout(() => {
+                        playing = false;
+                        dispatch('win');
+                    }, 1000);
                 }
             }}
             {found}

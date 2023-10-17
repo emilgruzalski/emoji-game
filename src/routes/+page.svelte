@@ -34,7 +34,7 @@
         </header>
 
         {#if state === 'won' || state === 'lost'}
-            <p>you {state} the game!</p>
+            <p>you {state} the game! play again?</p>
         {:else if state === 'paused'}
             <p>game paused</p>
         {:else if state === 'waiting'}
