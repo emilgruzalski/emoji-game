@@ -51,7 +51,7 @@
 
     function countdown() {
         const start = Date.now();
-        let remaining_at_start = remaining;
+        const remaining_at_start = remaining;
 
         function loop() {
             if (!playing) return;

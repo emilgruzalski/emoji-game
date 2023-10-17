@@ -49,6 +49,7 @@
                 {#each levels as level}
                     <button on:click={() => {
                         game.start(level);
+                        state = 'playing';
                     }}><p>{level.label}</p></button>
                 {/each}
             {/if}
