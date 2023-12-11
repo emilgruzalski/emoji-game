@@ -29,7 +29,7 @@
 {#if state !== 'playing'}
     <Modal>
         <header>
-            <h1>sN<span>aP & m</span>ATc<span>h</span></h1>
+            <h1>Memo<span>Ji</span></h1>
             <p>the emoji matching game</p>
         </header>
 
