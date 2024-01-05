@@ -1,20 +1,11 @@
 @import '@fontsource/press-start-2p';
 
 :root {
-    /* Primary color for the background */
-    --background-color: #000; /* Black */
+    --background-color: rgb(0, 0, 0);
 
-    /* Secondary color for elements like cards, modals, etc. */
-    --secondary-background-color: #1a1a1a; /* Dark Grey */
+    --text-color: rgb(255, 255, 255);
 
-    /* Primary color for text */
-    --text-color: #fff; /* White */
-
-    /* Secondary color for text (less emphasis) */
-    --secondary-text-color: #ccc; /* Light Grey */
-
-    /* Accent color for buttons, links, etc. */
-    --accent-color: orangered; /* Example: Green */
+    --accent-color: rgb(255, 165, 0);
 }
 
 body {

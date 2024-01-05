@@ -73,7 +73,7 @@
     }
 
     h1 span {
-        color: orangered;
+        color: rgb(255, 165, 0);
     }
 
     p {

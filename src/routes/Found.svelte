@@ -30,7 +30,7 @@
         align-items: center;
         width: 4em;
         height: 4em;
-        background: white;
+        background: rgb(80, 80, 80);
         padding: 1em;
         border-radius: 50%;
     }
