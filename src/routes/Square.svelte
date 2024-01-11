@@ -36,7 +36,7 @@
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        background: rgb(80, 80, 80);
+        background: grey;
         border: 0;
         border-radius: 1em;
         font-size: inherit;
@@ -44,8 +44,8 @@
 
     .background {
         position: absolute;
-        background: rgb(80, 80, 80);
-        border: 0.75em solid rgb(255, 165, 0);
+        background: grey;
+        border: 0.75em solid orangered;
         transform: rotateY(180deg);
         backface-visibility: hidden;
         width: 100%;

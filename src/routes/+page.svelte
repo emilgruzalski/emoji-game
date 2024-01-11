@@ -73,13 +73,14 @@
     }
 
     h1 span {
-        color: rgb(255, 165, 0);
+        color: orangered;
     }
 
     p {
         font-family: 'Press Start 2P', sans-serif;
         display: flex;
         justify-content: center;
+        text-align: center;
     }
 
     .buttons {
